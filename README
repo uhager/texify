@@ -1,0 +1,10 @@
+To use, replace 'atril' with your PDF viewer of choice.
+
+Two shellscripts to simplyfy running LaTex:
+* texify.sh runs latex with optional flag '-p' to generate pdf from ps
+* pdftexify.sh runs pdflatex
+Other options:
+-b to run bibtex
+-f/path/to/texfile to specify folder
+
+texifyGUI.py is a python script for a tkinter-based GUI to run the bash scripts. To use the GUI, place texify.sh and pdftexify.sh in your path.
