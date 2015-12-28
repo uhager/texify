@@ -1,5 +1,3 @@
-To use, replace 'atril' with your PDF viewer of choice.
-
 Two shellscripts to simplyfy running LaTex:
 * texify.sh runs latex with optional flag '-p' to generate pdf from ps
 * pdftexify.sh runs pdflatex

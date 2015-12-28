@@ -48,5 +48,5 @@ then
     run_latex
 fi
 run_latex
-atril $pdfname  &
+xdg-open $pdfname  &
 cd $ini

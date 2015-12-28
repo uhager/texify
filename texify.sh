@@ -57,8 +57,8 @@ if [ $pdf -eq 1 ]
 then
 #  ps2pdf -dPDFSETTINGS=/prepress $f2name 
   ps2pdf $f2name 
-  atril $f3name  &
+  xdg-open $f3name  &
  else
-  atril $f2name  &
+  xdg-open $f2name  &
 fi
 cd $ini
