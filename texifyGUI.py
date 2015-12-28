@@ -1,4 +1,4 @@
-#!/usr/bin/python 
+#!/usr/bin/env python 
 
 ## simple GUI to run texify.sh ans pdftexify.sh (need to be in path)
 ## author: Ulrike Hager
@@ -54,7 +54,8 @@ class MainFrame(Frame):
         print tex_command
         os.system(tex_command)
 
-root = Tk()        
+root = Tk()
+root.geometry('+50+50') 
 app = MainFrame(master=root) 
 app.master.title("TeXifyer") 
 #app.master.geometry('400x300+200+150')
