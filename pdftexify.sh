@@ -1,7 +1,8 @@
+#!/bin/bash
+
 ## pdftexify.sh to simplify running pdflatex
 ## author: Ulrike Hager
 
-#!/bin/bash
 fname=$1
 pdfname=${fname%tex}"pdf"
 bib=0

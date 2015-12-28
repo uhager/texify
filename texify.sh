@@ -1,7 +1,8 @@
+#!/bin/bash
+
 ## texify.sh to simplify running LaTex
 ## author: Ulrike Hager
 
-#!/bin/bash
 fname=$1
 f2name=${fname%tex}"ps"
 f3name=${fname%tex}"pdf"
