@@ -1,7 +1,8 @@
+#!/usr/bin/python 
+
 ## simple GUI to run texify.sh ans pdftexify.sh (need to be in path)
 ## author: Ulrike Hager
 
-#!/usr/bin/python 
 from Tkinter import *
 import os,tkFileDialog
 
