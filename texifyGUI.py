@@ -13,7 +13,8 @@ class MainFrame(Frame):
         self.grid() 
         self.createWidgets()
     def createWidgets(self):
-        self.pdflatex = IntVar(False)
+        self.pdflatex = IntVar()
+        self.pdflatex.set(1);
         self.pdf = StringVar()
         self.bib = StringVar()
         self.file = StringVar()
@@ -27,6 +28,7 @@ class MainFrame(Frame):
         self.texButton = Button(self, text='TeXify',
                                 command = self.Texify)
         self.pdfButton = Checkbutton(self, text='ps2pdf', variable=self.pdf, onvalue="-p", offvalue="")
+        self.pdfButton.config(state='disabled')
         self.pdftexifyButton = Checkbutton(self, text='pdflatex', variable= self.pdflatex, command=self.togglePdftex)
         self.bibButton = Checkbutton(self, text='BibTeX', variable=self.bib, onvalue="-b", offvalue="")
         self.FileButton.grid(row=1,column=0,sticky=W+E+S+N)
