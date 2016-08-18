@@ -12,6 +12,8 @@ class MainFrame(Frame):
         Frame.__init__(self, master)
         self.grid() 
         self.createWidgets()
+        self.bind_all('<Control-Key-q>',self.Close)
+        self.bind_all('<Control-t>',self.Texify)
     def createWidgets(self):
         self.pdflatex = IntVar()
         self.pdflatex.set(1);
@@ -20,13 +22,11 @@ class MainFrame(Frame):
         self.file = StringVar()
         self.dirname = StringVar()
         self.dirname.set(os.getcwd())
-        self.quitButton = Button ( self, text="Quit",
-                                   command=self.quit )
+        self.quitButton = Button ( self, text="Quit", underline=0, command=self.quit )
         self.FileEntry = Entry(self,textvariable=self.file)
         self.FileButton = Button(self, text='TeX file',
                                  command = lambda: self.file.set(tkFileDialog.askopenfilename(parent=self,initialdir=self.dirname.get(),title='tex file',filetypes=[('TeX','*.tex')])))
-        self.texButton = Button(self, text='TeXify',
-                                command = self.Texify)
+        self.texButton = Button(self, text='TeXify', underline=0, command = self.Texify)
         self.pdfButton = Checkbutton(self, text='ps2pdf', variable=self.pdf, onvalue="-p", offvalue="")
         self.pdfButton.config(state='disabled')
         self.pdftexifyButton = Checkbutton(self, text='pdflatex', variable= self.pdflatex, command=self.togglePdftex)
@@ -43,7 +43,7 @@ class MainFrame(Frame):
             self.pdfButton.config(state='normal')
         else:
             self.pdfButton.config(state='disabled')
-    def Texify(self):
+    def Texify(self, event = None):
         self.dirname.set( os.path.dirname( self.file.get() ) )
         filename = os.path.basename( self.file.get() )
         print self.dirname.get()  + ' ' + filename
@@ -55,6 +55,9 @@ class MainFrame(Frame):
 #        command = 'cd ' + self.dirname.get() + ' ; ' + tex_command + '; cd ' + cd_ini
         print tex_command
         os.system(tex_command)
+    def Close(self,event=None):
+        sys.exit(0);
+    
 
 root = Tk()
 root.geometry('+50+50') 
